@@ -90,3 +90,17 @@ print("Completion result:", completion)
 
 
 ```
+
+### Authenticate Huggingface for More Models
+1. Install: `!pip install huggingface`
+2. Authenticate: `!huggingface-client login`
+3. The try to host Mistral, after downloading from Hugging Face with 80% GPU utilization(`--gpu-memory-utilization 0.8`):
+```
+!python -m vllm.entrypoints.openai.api_server --host 127.0.0.1 --port 8888 --model mistralai/Mistral-7B-v0.1 --gpu-memory-utilization 0.8 & npx localtunnel --port 8888
+```
+4. `& npx localtunnel --port 8888` this is for creating ssh tunneling from Google Colab
+5. To get the IP for remote hosted Jupyter Lab: `!curl ipv4.icanhazip.com`
+
+### Below Links are Useful:
+1. [Cookbook for OpenAI](https://cookbook.openai.com/)
+2. [Lang-Chain](https://python.langchain.com/docs/get_started/quickstart/)
